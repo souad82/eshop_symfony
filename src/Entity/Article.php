@@ -23,18 +23,10 @@ class Article
 
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Price $price = null;
-
-    #[ORM\ManyToOne]
-    #[ORM\JoinColumn(nullable: false)]
     private ?Reference $reference = null;
 
     #[ORM\Column]
     private ?int $qty = null;
-
-
-
-
 
     public function getId(): ?int
     {
@@ -61,18 +53,6 @@ class Article
     public function setSize(?Size $size): self
     {
         $this->size = $size;
-
-        return $this;
-    }
-
-    public function getPrice(): ?Price
-    {
-        return $this->price;
-    }
-
-    public function setPrice(?Price $price): self
-    {
-        $this->price = $price;
 
         return $this;
     }
