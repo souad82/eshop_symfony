@@ -5,12 +5,24 @@ block body %}
         {% for ref in references %}
 		<div class="col-md-4 col-sm-12">
 			<div class="card" style="width: 18rem">
+
 				<img src="{{ ref.image }}" class="card-img-top" alt="{{ref.title}}" height="300px"/>
 				<div class="card-body">
 					<h5 class="card-title">{{ ref.title }}</h5>
 					<p class="card-text">
 						{{ ref.description|length > 50 ? ref.description|slice(0, 50) ~ '...' : ref.description}}
 					</p>
+					{% for color in ref.colors %}
+                                <ul>
+                                    <li>{{color.name}}</li>
+                                </ul>
+                            {% endfor %}
+
+                            {% for size in ref.sizes %}
+                                <ul>
+                                    <li>{{size.name}}</li>
+                                </ul>
+                            {% endfor %}
                     <p>{{ref.price.amount}} $</p>
 					<a href="{{ path('app_shop_show', {'slug' : ref.slug })}}" class="btn btn-primary">Voir plus</a>
 				</div>

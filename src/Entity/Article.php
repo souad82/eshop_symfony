@@ -13,17 +13,17 @@ class Article
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Color $color = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Size $size = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'articles')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Reference $reference = null;
+    private ?Reference $ref = null;
 
     #[ORM\Column]
     private ?int $qty = null;
@@ -57,14 +57,14 @@ class Article
         return $this;
     }
 
-    public function getReference(): ?Reference
+    public function getRef(): ?Reference
     {
-        return $this->reference;
+        return $this->ref;
     }
 
-    public function setReference(?Reference $reference): self
+    public function setRef(?Reference $ref): self
     {
-        $this->reference = $reference;
+        $this->ref = $ref;
 
         return $this;
     }
@@ -80,6 +80,4 @@ class Article
 
         return $this;
     }
-
-    
 }

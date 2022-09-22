@@ -47,7 +47,7 @@ class AppFixtures extends Fixture
         $refs = ["Dahu", "Seoul", "Auburn"];
         $images = [
             'https://thumbs.dreamstime.com/b/la-mode-v%C3%AAtx-l-illustration-bleue-de-forme-de-t-shirt-8229384.jpg',
-            'https://img.myloview.fr/images/illustration-unique-de-vecteur-de-dessin-anime-t-shirt-bleu-700-145918035.jpg',
+            'https://img.myloview.fr/images/illustration-vectorielle-simple-croquis-t-shirt-400-132666907.jpg',
             'https://previews.123rf.com/images/siberica/siberica1601/siberica160100173/51442205-t-shirt-croquis-homme-isol%C3%A9-sur-fond-blanc-vector-illustration-.jpg'
         ];
         $description = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum asperiores veniam iure unde voluptatibus impedit adipisci itaque, sapiente molestiae. Distinctio corporis a quod beatae fuga? Eaque excepturi ducimus magnam magni.";

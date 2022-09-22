@@ -8,7 +8,6 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
-
 #[ORM\Entity(repositoryClass: ReferenceRepository::class)]
 class Reference
 {
@@ -29,12 +28,21 @@ class Reference
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\ManyToOne]
+    #[ORM\ManyToOne(inversedBy: 'refs')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Price $price = null;
 
-    #[ORM\Column]
-    
+    #[ORM\OneToMany(mappedBy: 'ref', targetEntity: Article::class)]
+    private Collection $articles;
+
+    private $colors;
+
+    private $sizes;
+
+    public function __construct()
+    {
+        $this->articles = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -130,5 +138,28 @@ class Reference
 
         return $this;
     }
-}
 
+    public function getColors(): ?array
+    {
+        $colors = [];
+        $articles = $this->getArticles();
+        foreach ($articles as $article) {
+            if (!in_array($article->getColor(), $colors)) {
+                $colors[] = $article->getColor();
+            }
+        }
+        return $colors;
+    }
+
+    public function getSizes(): ?array
+    {
+        $sizes = [];
+        $articles = $this->getArticles();
+        foreach ($articles as $article) {
+            if (!in_array($article->getSize(), $sizes)) {
+                $sizes[] = $article->getSize();
+            }
+        }
+        return $sizes;
+    }
+}
