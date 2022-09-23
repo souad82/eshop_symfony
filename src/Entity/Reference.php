@@ -39,6 +39,7 @@ class Reference
 
     private $sizes;
 
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
@@ -162,4 +163,6 @@ class Reference
         }
         return $sizes;
     }
+
+    
 }
